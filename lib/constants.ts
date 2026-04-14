@@ -1,6 +1,6 @@
 import type { ImageMap, MenuCategory, EventItem, Review, ContactItem, ReservationZone, ChatConfig } from './types';
 
-export const USE_LOCAL_IMAGES = false;
+export const USE_LOCAL_IMAGES = true;
 
 export const IMAGES: ImageMap = USE_LOCAL_IMAGES
   ? {
