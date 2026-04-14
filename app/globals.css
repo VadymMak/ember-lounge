@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 5rem 0;
 }
 
 .badge {
@@ -153,11 +153,29 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  /* Fallback: show content after 2.5s if JS/observer doesn't fire */
+  animation: revealFallback 0.7s 2.5s ease forwards;
+}
+
+@keyframes revealFallback {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  /* Cancel CSS fallback when JS adds .visible */
+  animation: none;
+}
+
+/* Accessibility: skip animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
 }
 
 /* ============================================================
