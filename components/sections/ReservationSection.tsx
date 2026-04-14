@@ -39,6 +39,15 @@ export default function ReservationSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sectionRef.current?.querySelectorAll<HTMLElement>('.reveal:not(.visible)').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {

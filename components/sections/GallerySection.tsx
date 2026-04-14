@@ -26,6 +26,15 @@ export default function GallerySection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sectionRef.current?.querySelectorAll<HTMLElement>('.reveal:not(.visible)').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="section gallery" id="gallery" ref={sectionRef}>
       <div className="container">

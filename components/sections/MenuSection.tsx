@@ -35,6 +35,15 @@ export default function MenuSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sectionRef.current?.querySelectorAll<HTMLElement>('.reveal:not(.visible)').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const activeCategory = MENU_CATEGORIES.find((c) => c.id === activeTab);
 
   return (

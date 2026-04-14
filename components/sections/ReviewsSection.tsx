@@ -25,6 +25,15 @@ export default function ReviewsSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sectionRef.current?.querySelectorAll<HTMLElement>('.reveal:not(.visible)').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="section reviews" id="reviews" ref={sectionRef}>
       <div className="container">

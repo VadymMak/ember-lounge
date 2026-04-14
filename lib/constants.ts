@@ -4,14 +4,14 @@ export const USE_LOCAL_IMAGES = true;
 
 export const IMAGES: ImageMap = USE_LOCAL_IMAGES
   ? {
-      hero: '/images/hero.jpg',
-      about: '/images/about.jpg',
+      hero: '/images/hero.webp',
+      about: '/images/about.webp',
       gallery: [
-        '/images/gallery/1.jpg',
-        '/images/gallery/2.jpg',
-        '/images/gallery/3.jpg',
-        '/images/gallery/4.jpg',
-        '/images/gallery/5.jpg',
+        '/images/gallery/1.webp',
+        '/images/gallery/2.webp',
+        '/images/gallery/3.webp',
+        '/images/gallery/4.webp',
+        '/images/gallery/5.webp',
       ],
     }
   : {
